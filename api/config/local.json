@@ -1,0 +1,9 @@
+{
+    "environment": "",
+    "port": 0,
+    "dbConfig": {
+        "host": "",
+        "port": 0,
+        "dbName": ""
+    }
+}
