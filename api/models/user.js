@@ -8,7 +8,7 @@ const userSchema = new Schema({
     "birthday": { type: Date, required: true },
     "firstName": { type: String, required: true },
     "lastName": { type: String, required: true },
-    "collection": [
+    "funkoCollection": [
         { type: mongoose.Schema.Types.ObjectId, ref: "Funko", required: true }
     ],
     "wishList": [
@@ -16,4 +16,4 @@ const userSchema = new Schema({
     ]
 });
 
-module.export = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
