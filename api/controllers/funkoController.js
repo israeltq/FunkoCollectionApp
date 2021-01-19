@@ -62,7 +62,7 @@ class FunkoController {
         }
 
         if (actualValue == null) {
-            return res.status(400).send("ActualValue on resale-market is required");
+            return res.status(400).send("Actual Value on resale-market is required");
         }
 
         try {
@@ -131,6 +131,7 @@ class FunkoController {
             return res.sendStatus(500);
         }
     }
+
 }
 
 module.exports = FunkoController;
