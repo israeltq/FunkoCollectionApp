@@ -9,8 +9,9 @@ const funkoSchema = new Schema({
     "franchise": { type: String, required: true },
     "retailPrice": { type: Number, required: true },
     "actualValue": { type: Number, required: true }, 
-    "exclusive": { type: Boolean, required: true, default: false },
+    "exclusive": { type: Boolean, required: true, default: false }, 
     "exclusivity": { type: String, required: false, default: "" },
+    "discontinued":{type: Boolean, required: false, default: false},
     "image": { type: String, required: false, default: "" }
 });
 
