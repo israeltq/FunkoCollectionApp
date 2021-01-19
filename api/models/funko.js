@@ -11,7 +11,7 @@ const funkoSchema = new Schema({
     "actualValue": { type: Number, required: true }, 
     "exclusive": { type: Boolean, required: true, default: false }, 
     "exclusivity": { type: String, required: false, default: "" },
-    "discontinued":{type: Boolean, required: false, default: false},
+    "discontinued": { type: Boolean, required: false, default: false },
     "image": { type: String, required: false, default: "" }
 });
 

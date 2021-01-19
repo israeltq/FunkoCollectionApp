@@ -62,7 +62,7 @@ class FunkoController {
         }
 
         if (actualValue == null) {
-            return res.status(400).send("ActualValue on resale-market  is required");
+            return res.status(400).send("ActualValue on resale-market is required");
         }
 
         try {
@@ -79,7 +79,7 @@ class FunkoController {
             };
 
             const funko = new Funko(newFunko);
-            await funko.save(funko);
+            await funko.save();
 
             return res.status(201).send(funko);
         }
@@ -107,7 +107,7 @@ class FunkoController {
             funko.discontinued = newDiscontinued ? newDiscontinued : funko.discontinued;
             await funko.save();
 
-            return res.status(200).send(funko);
+            return res.status(202).send(funko);
         } 
         catch (err) {
             logger.error(err);
@@ -124,16 +124,13 @@ class FunkoController {
             
             await funko.remove();
 
-            return res.status(200).send(funko);
+            return res.status(204).send(funko);
         } 
         catch (err) {
             logger.error(err);
             return res.sendStatus(500);
         }
-        
     }
-    
-
 }
 
 module.exports = FunkoController;
