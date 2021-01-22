@@ -1,6 +1,7 @@
 // Import required packages
 const config = require("config");
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const logger = require("tracer").console();
 
@@ -15,6 +16,7 @@ db.initialize(config.get("dbConfig.host"), config.get("dbConfig.dbName"));
 // Configure Server
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
