@@ -1,0 +1,10 @@
+div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+.mat-checkbox {
+    margin-left: 5px;
+}

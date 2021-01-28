@@ -1,0 +1,101 @@
+<h2>Register Funko</h2>
+<div>
+
+  <form [formGroup]="funkoForm" autocomplete="off" novalidate (ngSubmit)="createFunko(funkoForm.value)"
+    fxLayout="column wrap" fxLayoutAlign="center center" fxayoutGap="10px">
+
+    <div>
+      <!-- Funko Name Field -->
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" id="name">
+        <mat-hint>Should be at least 2 characters long</mat-hint>
+        <mat-error *ngIf="hasError('name', 'required')">Name of the Funko is required</mat-error>
+        <mat-error *ngIf="hasError('name', 'minlength')">You have less than 2 characters</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <!-- Description Field -->
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" id="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <!-- Category Field -->
+      <!-- TODO: Cambiar a dropdown Dinamico -->
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <input matInput type="text" formControlName="category" id="category">
+        <mat-error *ngIf="hasError('category', 'required')">Category of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <!-- Franchise Field -->
+      <!-- TODO: Cambiar a dropdown Dinamico -->
+      <mat-form-field>
+        <mat-label>Franchise</mat-label>
+        <input matInput type="text" formControlName="franchise" id="franchise">
+        <mat-error *ngIf="hasError('franchise', 'required')">Franchise of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <!-- Retail Price Field -->
+      <!-- TODO: Cambiar a field de $$$ -->
+      <mat-form-field>
+        <mat-label>Retail Price</mat-label>
+        <input matInput type="number" formControlName="retailPrice"
+          id="retailPrice">
+        <mat-error *ngIf="hasError('retailPrice', 'required')">Retail price of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <!-- Actual Value Field -->
+      <!-- TODO: Cambiar a field de $$$ -->
+      <mat-form-field>
+        <mat-label>Resale Value</mat-label>
+        <input matInput type="number" formControlName="actualValue"
+          id="actualValue">
+        <mat-error *ngIf="hasError('actualValue', 'required')">Actual value of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <div>
+        <!-- Exclusive Field -->
+        <mat-label>Is the Funko exclusive?</mat-label>
+        <mat-checkbox formControlName="exclusive" id="exclusive" class="mat-checkbox"></mat-checkbox>
+        <mat-error *ngIf="hasError('exclusive', 'required')">Required</mat-error>
+      </div>
+
+      <div>
+        <!-- Exclusivity Field -->
+        <!-- TODO: Cambiar a dropdown Dinamico -->
+        <!-- TODO: Cambiar dependiendo de Exclusive Field -->
+        <mat-form-field>
+          <mat-label>From?</mat-label>
+          <input matInput type="text" formControlName="exclusivity"
+            id="exclusivity">
+          <mat-hint>Exclusivity store of the Funko </mat-hint>
+          <mat-error *ngIf="hasError('exclusivity', 'required')">Exclusivity of the Funko is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <!-- Discontinued Field -->
+      <mat-label>Has the Funko been discontinued?</mat-label>
+      <mat-checkbox formControlName="discontinued" id="discontinued" class="mat-checkbox"></mat-checkbox>
+      <mat-error *ngIf="hasError('discontinued', 'required')">Required</mat-error>
+    </div>
+
+    <button mat-button color="primary" [disabled]="!funkoForm.valid">Register/Add</button>
+
+  </form>
+
+</div>
