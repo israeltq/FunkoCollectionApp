@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { User } from '../user';
-import { UserService } from '../user.service';
-import { NotificationsService, NotificationType } from '../notifications.service';
+import { NotificationType } from '../../../../data/enums/notification-type.enum';
+import { User } from '../../../../data/models/user';
+import { UserService } from '../../../../data/services/user.service';
+import { NotificationsService } from '../../../../shared/services/notifications.service';
 
 @Component({
   selector: 'app-new-user',
