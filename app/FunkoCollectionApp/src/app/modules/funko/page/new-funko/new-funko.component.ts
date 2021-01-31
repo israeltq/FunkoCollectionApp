@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Funko } from '../funko';
-import { FunkoService } from '../funko.service';
-import { NotificationsService, NotificationType } from '../notifications.service';
+import { NotificationType } from '../../../../data/enums/notification-type.enum';
+import { Funko } from '../../../../data/models/funko';
+import { FunkoService } from '../../../../data/services/funko.service';
+import { NotificationsService } from '../../../../shared/services/notifications.service';
 
 @Component({
   selector: 'app-new-funko',
