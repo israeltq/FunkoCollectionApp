@@ -1,39 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatNativeDateModule } from '@angular/material/core';
-import { ToastrModule } from 'ngx-toastr';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewUserComponent } from './new-user/new-user.component';
-import { AngularTemplateComponent } from './angular-template/angular-template.component';
+
+import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { HeaderComponent } from './layout/header/header.component';
+
+import { AuthModule } from './modules/auth/auth.module';
+import { TemplateModule } from './modules/template/template.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewUserComponent,
-    AngularTemplateComponent
+    ContentLayoutComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatNativeDateModule,
-    ToastrModule.forRoot()
+    CoreModule,
+    SharedModule,
+    AuthModule,
+    TemplateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
