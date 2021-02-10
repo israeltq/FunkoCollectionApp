@@ -95,7 +95,7 @@ export class NewFunkoComponent implements OnInit {
         exclusive: funkoFormValue.exclusive,
         exclusivity: funkoFormValue.exclusivity,
         discontinued: funkoFormValue.discontinued,
-        image: funkoFormValue.image
+        image: ''
       };
 
       this.funkoService.createNewFunko(this.newFunko).subscribe((res) => {
@@ -108,4 +108,3 @@ export class NewFunkoComponent implements OnInit {
   }
 
 }
-
