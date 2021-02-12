@@ -2,14 +2,13 @@
 <div>
 
   <form [formGroup]="userForm" autocomplete="off" novalidate (ngSubmit)="createUser(userForm.value)"
-  fxLayout="column wrap" fxLayoutAlign="center center" fxayoutGap="10px">
+    fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
 
+    <!-- User Name Field -->
     <div>
-      <!-- User Name Field -->
       <mat-form-field>
-        <input matInput 
-          placeholder="Your username" type="text" 
-          formControlName="userName" id="userName">
+        <mat-label>UserName</mat-label>
+        <input matInput type="text" formControlName="userName" id="userName">
         <mat-hint>Should be between 4- 12 characters</mat-hint>
         <mat-error *ngIf="hasError('userName', 'required')">User Name is required</mat-error>
         <mat-error *ngIf="hasError('userName', 'maxlength')">You have more than 12 characters</mat-error>
@@ -17,44 +16,40 @@
       </mat-form-field>
     </div>
 
+    <!-- Email Field -->
     <div>
-      <!-- Email Field -->
       <mat-form-field>
-        <input matInput 
-          placeholder="Your email" type="text" 
-          formControlName="email" id="email">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" id="email">
         <mat-hint>Should be a valid email</mat-hint>
         <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
         <mat-error *ngIf="hasError('email', 'email')">Email must be valid</mat-error>
       </mat-form-field>
     </div>
 
+    <!-- First Name Field -->
     <div>
-      <!-- First Name Field -->
       <mat-form-field>
-        <input matInput 
-          placeholder="Your First Name" type="text" 
-          formControlName="firstName" id="firstName">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="firstName" id="firstName">
         <mat-error *ngIf="hasError('firstName', 'required')">First Name is required</mat-error>
       </mat-form-field>
     </div>
     
+    <!-- Last Name Field -->
     <div>
-      <!-- Last Name Field -->
       <mat-form-field>
-        <input matInput 
-          placeholder="Your Last Name" type="text" 
-          formControlName="lastName" id="lastName">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="lastName" id="lastName">
         <mat-error *ngIf="hasError('lastName', 'required')">Last Name is required</mat-error>
       </mat-form-field>
     </div>
 
+    <!-- Birthday Field -->
     <div>
-      <!-- Birthday Field -->
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" 
-          placeholder="Date of Birth" (click)="picker.open()"
-          formControlName="birthday" id="birthday">
+        <mat-label>Birth Date</mat-label>
+        <input matInput [matDatepicker]="picker" (click)="picker.open()" formControlName="birthday" id="birthday">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="hasError('birthday', 'required')">Date of Birth is required</mat-error>

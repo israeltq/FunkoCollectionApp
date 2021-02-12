@@ -12,6 +12,7 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { HeaderComponent } from './layout/header/header.component';
 
 import { AuthModule } from './modules/auth/auth.module';
+import { FunkoModule } from './modules/funko/funko.module';
 import { TemplateModule } from './modules/template/template.module';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { TemplateModule } from './modules/template/template.module';
     CoreModule,
     SharedModule,
     AuthModule,
+    FunkoModule,
     TemplateModule
   ],
   providers: [],

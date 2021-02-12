@@ -1,0 +1,105 @@
+<h2>Register Funko</h2>
+<div>
+
+  <form [formGroup]="funkoForm" autocomplete="off" novalidate (ngSubmit)="createFunko(funkoForm.value)"
+    fxLayout="column wrap" fxLayoutAlign="center center" fxayoutGap="10px">
+
+    <!-- Funko Name Field -->
+    <div>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" id="name">
+        <mat-hint>Should be at least 2 characters long</mat-hint>
+        <mat-error *ngIf="hasError('name', 'required')">Name of the Funko is required</mat-error>
+        <mat-error *ngIf="hasError('name', 'minlength')">You have less than 2 characters</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Description Field -->
+    <div>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" id="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <!-- Category Field -->
+    <div>
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" id="category">
+          <mat-option *ngFor="let category of funkoCategories" [value]="category.key">
+            {{ category.value }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="hasError('category', 'required')">Category of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Franchise Field -->
+    <div>
+      <mat-form-field>
+        <mat-label>Franchise</mat-label>
+        <mat-select formControlName="franchise" id="franchise">
+          <mat-option *ngFor="let franchise of funkoFranchises" [value]="franchise.key">
+            {{ franchise.value }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Exclusivity store of the Funko </mat-hint>
+        <mat-error *ngIf="hasError('franchise', 'required')">Franchise of the Funko is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Retail Price Field -->
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Retail Price</mat-label>
+        <input matInput type="number" formControlName="retailPrice" id="retailPrice">
+        <span matPrefix>$&nbsp;</span>
+        <mat-error *ngIf="hasError('retailPrice', 'required')">Retail price of the Funko is required</mat-error>
+        <mat-error *ngIf="hasError('retailPrice', 'min')">Price can't be less than $0.00</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Actual Value Field -->
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Estimated Value</mat-label>
+        <input matInput type="number" formControlName="actualValue" id="actualValue">
+        <span matPrefix>$&nbsp;</span>
+        <mat-error *ngIf="hasError('actualValue', 'required')">Actual value of the Funko is required</mat-error>
+        <mat-error *ngIf="hasError('actualValue', 'min')">Price can't be less than $0.00</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Exclusive Field -->
+    <div>
+      <mat-label>Is the Funko exclusive?</mat-label>
+      <mat-checkbox formControlName="exclusive" id="exclusive"></mat-checkbox>
+    </div>
+
+    <!-- Exclusivity Field -->
+    <div *ngIf="funkoForm.value.exclusive">
+      <mat-form-field>
+        <mat-label>From?</mat-label>
+        <mat-select formControlName="exclusivity" id="exclusivity">
+          <mat-option *ngFor="let store of exclusiveStores" [value]="store.key">
+            {{ store.value }}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Exclusivity store of the Funko </mat-hint>
+        <!-- <mat-error *ngIf="hasError('exclusivity', 'required')">Exclusivity of the Funko is required</mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <!-- Discontinued Field -->
+    <div>
+      <mat-label>Has the Funko been discontinued?</mat-label>
+      <mat-checkbox formControlName="discontinued" id="discontinued" class="mat-checkbox"></mat-checkbox>
+    </div>
+
+    <button mat-button color="primary" [disabled]="!funkoForm.valid">Register/Add</button>
+
+  </form>
+
+</div>
